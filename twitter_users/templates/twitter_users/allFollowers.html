@@ -1,0 +1,57 @@
+{% extends "twitter_users/base_template.html" %}
+
+{% block content %}
+<div class="row wow fadeIn">
+
+    <!--Grid column-->
+    <div class="col-md-12 mb-4">
+
+        <!--Card-->
+        <div class="card">
+
+            <!--Card content-->
+            <div class="card-body">
+
+                <!-- Table  -->
+                <table class="table table-hover">
+                    <!-- Table head -->
+                    <thead class="blue-grey lighten-4">
+                      <tr>
+                          <th>TwitterId</th>
+                          <th>Image</th>
+                          <th>Name</th>
+                          <th>Analyze</th>
+                      </tr>
+                    </thead>
+                    <!-- Table head -->
+
+                    <!-- Table body -->
+                    <tbody>
+                      {% if followers %}
+                          {% for each in followers %}
+                          <tr>
+                              <th scope="row">{{ each.id }}</th>
+                              <td><img class="img-fluid" src="{{ each.profile_image_url_https }}" alt="Chania"></td>
+                              <td>{{ each.name }}</td>
+                              <td><button type="button" class="btn btn-outline-info"><a href="/twitter/followerAnalysis/{{ each.id }}">
+                                Analyze
+                              </a></button></td>
+                          </tr>
+                          {% endfor %}
+                          </ul>
+                      {% endif %}
+                    </tbody>
+                    <!-- Table body -->
+                </table>
+                <!-- Table  -->
+
+            </div>
+
+        </div>
+        <!--/.Card-->
+
+    </div>
+    <!--Grid column-->
+
+</div>
+{% endblock %}

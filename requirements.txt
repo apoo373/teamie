@@ -1,0 +1,4 @@
+django
+requests
+requests_oauthlib
+oauth2
